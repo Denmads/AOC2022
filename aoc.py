@@ -1,15 +1,21 @@
 import loader
 import sys
 
-def main(task_id: str):
-    task = loader.load_task(task_id)
-    input_txt = loader.load_input(task_id)
-    task.run(input_txt)
+def main(day: str, part: str):
+    task = loader.load_task(day)
+    input_txt = loader.load_input(day)
+
+    if part == "a":
+        task.run_a(input_txt)
+    elif part == "b":
+        task.run_b(input_txt)
+    else:
+        print("Part can only be 'a' or 'b'")
 
 
 if __name__ == '__main__':
-    if len(sys.argv) != 2:
-        print("Usage: aoc.py <task_id, eg. 12b>")
+    if len(sys.argv) != 3:
+        print("Usage: aoc.py <day> <part>")
         exit()
     
-    main(sys.argv[1])
+    main(sys.argv[1], sys.argv[2])
