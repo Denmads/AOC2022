@@ -12,11 +12,13 @@ def main(day: str, part: str):
     input_txt = loader.load_input(day)
     print("")
 
+    parsed_input = task.parse_input(input_txt)
+    
     start = time.perf_counter()
     if part == "a":
-        task.run_a(input_txt)
+        task.run_a(parsed_input)
     elif part == "b":
-        task.run_b(input_txt)
+        task.run_b(parsed_input)
     
     exec_time = time.perf_counter() - start
     print("----------------------")

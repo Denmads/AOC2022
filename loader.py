@@ -1,14 +1,19 @@
 import importlib
 import os
+from typing import Any
 
 class TaskInterface:
-        
+    
     @staticmethod
-    def run_a(input: str) -> None:
+    def parse_input(input: str) -> Any:
+        """Parses the input"""
+    
+    @staticmethod
+    def run_a(input: Any) -> None:
         """Runs part a"""
 
     @staticmethod
-    def run_b(input: str) -> None:
+    def run_b(input: Any) -> None:
         """Runs part b"""
     
 
