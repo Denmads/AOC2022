@@ -28,19 +28,18 @@ def run_a(data: Rounds):
 
 
 
+from utils.numberutils import loop_int
+
 def extract_shape_score(round: list[str, str]) -> int:
     opponent_score = shape_score(round[0], True)
     
     if round[1] == "Y": return opponent_score
     
     if round[1] == "Z":
-        return max((opponent_score + 1) % 4, 1)
+        return loop_int(opponent_score + 1, 1, 3)
     
     if round[1] == "X":
-        temp = opponent_score - 1
-        if temp < 1:
-            temp += 3
-        return temp
+        return loop_int(opponent_score - 1, 1, 3)
 
 def round_score_new(round_outcome: str) -> int:
     return (ord(round_outcome) - 88) * 3
