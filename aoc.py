@@ -12,7 +12,9 @@ def main(day: str, part: str):
     input_txt = loader.load_input(day)
     print("")
 
+    start = time.perf_counter()
     parsed_input = task.parse_input(input_txt)
+    parse_time = time.perf_counter() - start
     
     start = time.perf_counter()
     if part == "a":
@@ -22,7 +24,9 @@ def main(day: str, part: str):
     
     exec_time = time.perf_counter() - start
     print("----------------------")
-    print(f"It took {exec_time} seconds to run!")
+    print(f"Parse: {parse_time} seconds")
+    print(f"Run: {exec_time} seconds")
+    print(f"Totaling: {parse_time + exec_time}")
     print("")
 
 
