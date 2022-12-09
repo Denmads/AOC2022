@@ -79,11 +79,7 @@ def run_b(data: InstructionList):
 
     for inst in data:
         for i in range(inst[1]):
-            # print(f"{inst[0]} - {i+1}/{inst[1]}")
-            # print(f"H: {rope.head} | T: {rope.tail}")
             rope.move_head(inst[0].x, inst[0].y)
-            # print(f"H: {rope.head} | T: {rope.tail}")
-            # print("---")
             visited.add((rope.tail.x, rope.tail.y))
 
     print(f"Number of visited cells: {len(visited)}")
